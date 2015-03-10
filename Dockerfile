@@ -8,10 +8,6 @@ COPY proget_start.sh /proget_start.sh
 EXPOSE 80
 ENV MONO_IOMAP case
 
-#COPY LinuxWebApp /usr/local/proget/web/
-#COPY LinuxService /usr/local/proget/service/
-#COPY bmdbupdate.exe /usr/local/proget/db/bmdbupdate.exe
-
 ENV PROGET_VERSION 4.0.0
 
 RUN apt-get update \

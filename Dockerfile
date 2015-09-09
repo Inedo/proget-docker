@@ -38,7 +38,7 @@ COPY proget_start.sh /proget_start.sh
 EXPOSE 80
 ENV MONO_IOMAP case
 
-ENV PROGET_VERSION 4.0.1
+ENV PROGET_VERSION 4.0.2
 
 RUN apt-get update \
  && apt-get install -y wget bzip2 \

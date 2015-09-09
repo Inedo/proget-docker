@@ -20,26 +20,14 @@ su -c "/usr/lib/postgresql/$PG_MAJOR/bin/pg_ctl start -w -D /var/lib/postgresql/
 echo Running changescripter...
 mono /usr/local/proget/db/bmdbupdate.exe Update /Conn='Server=localhost; Database=ProGet; User Id=proget; Password=proget;' /Init=yes
 
-#echo Starting nginx...
-#nginx
-#echo Nginx started
-
 echo Starting ProGet service...
-mono --trace=N:nothing /usr/local/proget/service/ProGet.Service.exe Run /Urls=http://*:80/ &
+mono /usr/local/proget/service/ProGet.Service.exe Run /Urls=http://*:80/ &
 pgservice_pid=$!
 echo "Service PID is $pgservice_pid"
-
-#echo Starting ProGet Web application...
-#fastcgi-mono-server4 --socket=tcp --applications=/:/usr/local/proget/web --printlog --loglevels=All &
-#pgweb_pid=$!
-#echo "Web PID is $pgweb_pid"
 
 function handle_shutdown {
 	echo "Stopping ProGet service..."
 	kill -15 $pgservice_pid
-
-	#echo "Stopping ProGet web application..."
-	#kill -15 $pgweb_pid
 
 	echo "Stopping postgresql..."
 	su -c "/usr/lib/postgresql/$PG_MAJOR/bin/pg_ctl stop" postgres

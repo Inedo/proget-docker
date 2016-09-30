@@ -4,7 +4,7 @@ EXPOSE 80
 
 ENV PROGET_VERSION 4.4.1
 
-RUN mkdir -p /usr/local/proget && curl "https://s3.amazonaws.com/cdn.inedo.com/downloads/proget-linux/proget$PROGET_VERSION.tar.xz" | tar xvJC /usr/local/proget
+RUN mkdir -p /usr/local/proget && curl "https://s3.amazonaws.com/cdn.inedo.com/downloads/proget-linux/ProGet.$PROGET_VERSION.tar.xz" | tar xvJC /usr/local/proget
 
 ENV PROGET_DATABASE "Server=proget-postgres; Database=postgres; User Id=postgres; Password=;"
 

@@ -2,7 +2,7 @@ FROM mono
 
 EXPOSE 80
 
-ENV PROGET_VERSION 4.6.2
+ENV PROGET_VERSION 4.6.3
 
 RUN mkdir -p /usr/local/proget && curl "https://s3.amazonaws.com/cdn.inedo.com/downloads/proget-linux/ProGet.$PROGET_VERSION.tar.xz" | tar xvJC /usr/local/proget
 

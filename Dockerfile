@@ -1,4 +1,4 @@
-9FROM mono
+FROM mono
 
 EXPOSE 80
 

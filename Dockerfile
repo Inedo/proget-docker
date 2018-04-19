@@ -2,7 +2,7 @@ FROM mono
 
 EXPOSE 80
 
-ENV PROGET_VERSION 5.0.11
+ENV PROGET_VERSION 5.0.12
 
 RUN apt-get update && apt-get install xz-utils
 

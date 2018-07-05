@@ -14,6 +14,6 @@ VOLUME /var/proget/packages
 VOLUME /var/proget/extensions
 VOLUME /usr/share/Inedo/SharedConfig
 
-CMD ([ -f /etc/Inedo/SharedConfig/ProGet.config ] || echo '<?xml version="1.0" encoding="utf-8"?><InedoAppConfig><ConnectionString>'"$PROGET_DATABASE"'</ConnectionString><WebServer Enabled="true" Urls="http://*:80/"/></InedoAppConfig>' > /usr/share/Inedo/SharedConfig/ProGet.config) \
+CMD ([ -f /usr/share/Inedo/SharedConfig/ProGet.config ] || echo '<?xml version="1.0" encoding="utf-8"?><InedoAppConfig><ConnectionString>'"$PROGET_DATABASE"'</ConnectionString><WebServer Enabled="true" Urls="http://*:80/"/></InedoAppConfig>' > /usr/share/Inedo/SharedConfig/ProGet.config) \
 && mono /usr/local/proget/db/bmdbupdate.exe Update /Conn="$PROGET_DATABASE" /Init=yes \
 && exec mono /usr/local/proget/service/ProGet.Service.exe run --mode=both

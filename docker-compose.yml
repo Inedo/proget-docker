@@ -1,0 +1,35 @@
+version: '3'
+
+volumes:
+  database:
+  packages:
+  extensions:
+
+networks:
+  proget:
+
+services:
+  proget:
+    image: inedo/proget
+    restart: always
+    environment:
+      - PROGET_DATABASE=Host=proget_db; Database=proget; Username=proget; Password=secret;
+    volumes:
+      - packages:/var/proget/packages
+      - extensions:/var/proget/extensions
+    ports:
+      - 80:80
+    networks: 
+      - proget
+
+  proget_db:
+    image: postgres:9.5
+    restart: always
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=proget
+      - POSTGRES_USER=proget
+      - POSTGRES_PASSWORD=secret
+    networks: 
+      - proget

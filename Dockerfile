@@ -16,5 +16,5 @@ VOLUME /var/proget/packages
 VOLUME /var/proget/extensions
 VOLUME /usr/share/Inedo/SharedConfig
 
-CMD ([ -f /usr/share/Inedo/SharedConfig/ProGet.config ] || echo '<?xml version="1.0" encoding="utf-8"?><InedoAppConfig><ConnectionString Type="'"`$PROGET_DB_TYPE"'">'"`$PROGET_DATABASE"'</ConnectionString><WebServer Enabled="true" Urls="http://*:80/"/></InedoAppConfig>' > /usr/share/Inedo/SharedConfig/ProGet.config) \
-&& exec mono /usr/local/proget/service/ProGet.Service.exe run --mode=`$PROGET_SVC_MODE --linuxContainer
+CMD ([ -f /usr/share/Inedo/SharedConfig/ProGet.config ] || echo '<?xml version="1.0" encoding="utf-8"?><InedoAppConfig><ConnectionString Type="'"$PROGET_DB_TYPE"'">'"$PROGET_DATABASE"'</ConnectionString><WebServer Enabled="true" Urls="http://*:80/"/></InedoAppConfig>' > /usr/share/Inedo/SharedConfig/ProGet.config) \
+&& exec mono /usr/local/proget/service/ProGet.Service.exe run --mode=$PROGET_SVC_MODE --linuxContainer

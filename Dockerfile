@@ -2,7 +2,7 @@ FROM mono
 
 EXPOSE 80
 
-ARG PROGET_VERSION=5.2.23
+ARG PROGET_VERSION=5.2.24
 
 RUN apt-get update && apt-get install xz-utils
 

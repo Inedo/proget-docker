@@ -1,8 +1,7 @@
 # proget-docker
 
-This is the repository for the official Docker image for ProGet. It launches a single process that hosts the ProGet web app
-and its background services, and also updates the schema for a connected SQL Server or PostgreSQL database
-on startup.
+This repository was used to build the official ProGet Docker image prior to v5.3.0. It is no longer used.
 
-See the [install guide](https://inedo.com/support/documentation/proget/installation/installation-guide/linux-docker)
+The ProGet Docker image is now available from https://proget.inedo.com/feeds/ProductImages; see the
+[install guide](https://inedo.com/support/documentation/proget/installation/installation-guide/linux-docker)
 for instructions on how to get started.
